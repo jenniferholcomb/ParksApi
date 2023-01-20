@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ParksApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize]
   public class ParksController : ControllerBase
   {
     private readonly ParksApiContext _db;
@@ -15,36 +17,29 @@ namespace ParksApi.Controllers
       _db = db;
     }
 
-    // GET: api/Animals
+    // GET api/Parks
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Park>>> Get()
+    public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
     {
-      return await _db.Parks.ToListAsync();
+      IQueryable<Park> query = _db.Parks.AsQueryable();
+
+      if (location != null)
+      {
+        query = query.Where(entry => entry.Location == location);
+      }
+
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+
+      if (type != null)
+      {
+        query = query.Where(entry => entry.Type == type);
+      }
+
+      return await query.ToListAsync();
     }
-
-    // // GET api/Parks
-    // [HttpGet]
-    // public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
-    // {
-    //   IQueryable<Park> query = _db.Parks.AsQueryable();
-
-    //   if (location != null)
-    //   {
-    //     query = query.Where(entry => entry.Location == location);
-    //   }
-
-    //   if (state != null)
-    //   {
-    //     query = query.Where(entry => entry.State == state);
-    //   }
-
-    //   if (type != null)
-    //   {
-    //     query = query.Where(entry => entry.Type == type);
-    //   }
-
-    //   return await query.ToListAsync();
-    // }
 
     // GET: api/Parks/5
     [HttpGet("{id}")]
