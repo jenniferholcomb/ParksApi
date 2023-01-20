@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
 
-namespace ParksApi.AddControllers
+namespace ParksApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
@@ -12,7 +12,7 @@ namespace ParksApi.AddControllers
 
     public ParksController(ParksApiContext db)
     {
-      db = _db;
+      _db = db;
     }
 
     // GET api/parks
