@@ -15,14 +15,14 @@ namespace ParksApi.Controllers
       _db = db;
     }
 
-    // GET api/parks
+    // GET api/Parks
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get()
     {
       return await _db.Parks.ToListAsync();
     }
 
-    // GET: api/parks/5
+    // GET: api/Parks/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark(int id)
     {
@@ -34,5 +34,15 @@ namespace ParksApi.Controllers
       }
       return park;
     }
+
+    // POST: api/Parks
+    [HttpPost]
+    public async Task<ActionResult<Park>> Post([FromBody] Park park)
+    {
+      _db.Parks.Add(park);
+      await _db.SaveChangesAsync();
+      return CreatedAtAction(nameof(GetPark), new { id = park.ParkId }, park);
+    }
+
   }
 }
