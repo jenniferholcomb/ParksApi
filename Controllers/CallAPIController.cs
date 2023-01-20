@@ -68,7 +68,7 @@ namespace ParksApi.Controllers
       using (var httpClient = new HttpClient())
       {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
-        using (var response = await httpClient.GetAsync("https://localhost:5000/api/Parks"))
+        using (var response = await httpClient.GetAsync("https://localhost:5001/api/Parks"))
         {
           if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
           {
