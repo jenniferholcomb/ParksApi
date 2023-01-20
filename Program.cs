@@ -15,6 +15,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+AddEndpointsApiExplorer
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseHttpsRedirection();
 
