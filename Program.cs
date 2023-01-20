@@ -23,13 +23,16 @@ builder.Services.AddAuthentication(options =>
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = "https://epicodus.com", // can be set to anything
-        ValidIssuer = "https://epicodus.com", // can be set to anything
+        ValidAudience = builder.Configuration["Jwt:Audience"], // can be set to anything
+        ValidIssuer = builder.Configuration["Jwt:Issuer"], // can be set to anything
         ClockSkew = TimeSpan.Zero,// It forces tokens to expire exactly at token expiration time instead of 5 minutes later
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MynameisJamesBond007"))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
     };
 });
 
+builder.Services.AddAuthorization();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ParksApiContext>(
