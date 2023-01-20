@@ -17,9 +17,26 @@ namespace ParksApi.Controllers
 
     // GET api/Parks
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Park>>> Get()
+    public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
     {
-      return await _db.Parks.ToListAsync();
+      IQueryable<Park> query = _db.Parks.AsQueryable();
+
+      if (location != null)
+      {
+        query = query.Where(entry => entry.Location == location);
+      }
+
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+
+      if (type != null)
+      {
+        query = query.Where(entry => entry.Type == type);
+      }
+
+      return await query.ToListAsync();
     }
 
     // GET: api/Parks/5
@@ -75,6 +92,21 @@ namespace ParksApi.Controllers
     private bool ParkExists(int id)
     {
       return _db.Parks.Any(e => e.ParkId == id);
+    }
+
+    // DELETE: api/Parks/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAnimal(int id)
+    {
+      Park park = await _db.Parks.FindAsync(id);
+      if ( park == null )
+      {
+        return NotFound();
+      }
+      _db.Parks.Remove(park);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
     }
 
   }
