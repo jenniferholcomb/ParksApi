@@ -26,7 +26,7 @@ namespace ParksApi.Models
                    Location = "Portland",
                    State = "Oregon",
                    Type = "city",
-                   Terrain = "woodsy ravine, creek" 
+                   Terrain = "woodsy ravine, creek" ,
                    Features = "hiking, springtime wildflowers, wheelchair access loops"
                   },
         new Park { ParkId = 3, 
@@ -34,7 +34,7 @@ namespace ParksApi.Models
                    Location = "Gifford Pinchot National Forest",
                    State = "Washington",
                    Type = "mountain",
-                   Terrain = "volcanic, old-growth forest, lakes, waterfalls in canyon" 
+                   Terrain = "volcanic, old-growth forest, lakes, waterfalls in canyon", 
                    Features = "hiking, wheelchair access loops, viewpoints"
                   },
         new Park { ParkId = 4, 
@@ -42,7 +42,7 @@ namespace ParksApi.Models
                    Location = "Columbia Gorge",
                    State = "Washington",
                    Type = "gorge",
-                   Terrain = "rocky near clifftops, forest, river" 
+                   Terrain = "rocky near clifftops, forest, river", 
                    Features = "overlooks of Columbia River, spring wildflowers, wheelchair accessible loop" 
                   },
         new Park { ParkId = 5, 
@@ -53,7 +53,7 @@ namespace ParksApi.Models
                    Terrain = "steep cliffs, river",
                    Features = "rock climbing, camping, hiking"
                   }                                                     
-      )
+      );
     }
   }
 }
