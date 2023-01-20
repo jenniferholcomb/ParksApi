@@ -10,8 +10,8 @@ using ParksApi.Models;
 namespace ParksApi.Migrations
 {
     [DbContext(typeof(ParksApiContext))]
-    [Migration("20230120184628_RemoveValidationType")]
-    partial class RemoveValidationType
+    [Migration("20230120193320_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,19 +30,13 @@ namespace ParksApi.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Terrain")
                         .HasColumnType("longtext");
@@ -103,7 +97,7 @@ namespace ParksApi.Migrations
                             Name = "Smith Rock State Park",
                             State = "Oregon",
                             Terrain = "steep cliffs, river",
-                            Type = "high desert, tugg and basalt cliffs"
+                            Type = "high desert"
                         });
                 });
 #pragma warning restore 612, 618

@@ -28,27 +28,19 @@ namespace ParksApi.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Terrain")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("varchar(60)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("ParkId");
 
@@ -103,7 +95,7 @@ namespace ParksApi.Migrations
                             Name = "Smith Rock State Park",
                             State = "Oregon",
                             Terrain = "steep cliffs, river",
-                            Type = "high desert, tugg and basalt cliffs"
+                            Type = "high desert"
                         });
                 });
 #pragma warning restore 612, 618

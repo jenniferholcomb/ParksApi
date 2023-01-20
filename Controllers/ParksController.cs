@@ -15,29 +15,36 @@ namespace ParksApi.Controllers
       _db = db;
     }
 
-    // GET api/Parks
+    // GET: api/Animals
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
+    public async Task<ActionResult<IEnumerable<Park>>> Get()
     {
-      IQueryable<Park> query = _db.Parks.AsQueryable();
-
-      if (location != null)
-      {
-        query = query.Where(entry => entry.Location == location);
-      }
-
-      if (state != null)
-      {
-        query = query.Where(entry => entry.State == state);
-      }
-
-      if (type != null)
-      {
-        query = query.Where(entry => entry.Type == type);
-      }
-
-      return await query.ToListAsync();
+      return await _db.Parks.ToListAsync();
     }
+
+    // // GET api/Parks
+    // [HttpGet]
+    // public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
+    // {
+    //   IQueryable<Park> query = _db.Parks.AsQueryable();
+
+    //   if (location != null)
+    //   {
+    //     query = query.Where(entry => entry.Location == location);
+    //   }
+
+    //   if (state != null)
+    //   {
+    //     query = query.Where(entry => entry.State == state);
+    //   }
+
+    //   if (type != null)
+    //   {
+    //     query = query.Where(entry => entry.Type == type);
+    //   }
+
+    //   return await query.ToListAsync();
+    // }
 
     // GET: api/Parks/5
     [HttpGet("{id}")]

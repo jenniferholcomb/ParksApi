@@ -10,7 +10,7 @@ using ParksApi.Models;
 namespace ParksApi.Migrations
 {
     [DbContext(typeof(ParksApiContext))]
-    [Migration("20230120164925_Initial")]
+    [Migration("20230120193129_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

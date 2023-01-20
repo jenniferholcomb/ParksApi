@@ -17,7 +17,7 @@ namespace ParksApi.Migrations
                     { 2, "hiking, springtime wildflowers, wheelchair access loops", "Portland", "Tyron Creek State Natural Area", "Oregon", "woodsy ravine, creek", "city" },
                     { 3, "hiking, wheelchair access loops, viewpoints", "Gifford Pinchot National Forest", "Mt St Helens National Volcanic Monument", "Washington", "volcanic, old-growth forest, lakes, waterfalls in canyon", "mountain" },
                     { 4, "overlooks of Columbia River, spring wildflowers, wheelchair accessible loop", "Columbia Gorge", "Beacon Rock State Park", "Washington", "rocky near clifftops, forest, river", "gorge" },
-                    { 5, "rock climbing, camping, hiking", "Terrebone", "Smith Rock State Park", "Oregon", "steep cliffs, river", "high desert, tugg and basalt cliffs" }
+                    { 5, "rock climbing, camping, hiking", "Terrebone", "Smith Rock State Park", "Oregon", "steep cliffs, river", "high desert" }
                 });
         }
 

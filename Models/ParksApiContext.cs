@@ -49,7 +49,7 @@ namespace ParksApi.Models
                    Name = "Smith Rock State Park",
                    Location = "Terrebone",
                    State = "Oregon",
-                   Type = "high desert, tugg and basalt cliffs",
+                   Type = "high desert",
                    Terrain = "steep cliffs, river",
                    Features = "rock climbing, camping, hiking"
                   }                                                     
