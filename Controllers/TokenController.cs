@@ -35,7 +35,7 @@ namespace ParksApi.Controllers
               new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
               new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
               new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-              new Claim("UserId", user.UserId.ToString()),
+              new Claim("UserId", user.UserInfoId.ToString()),
               new Claim("DisplayName", user.DisplayName),
               new Claim("UserName", user.UserName),
               new Claim("Email", user.Email)

@@ -55,7 +55,17 @@ namespace ParksApi.Models
                    Features = "rock climbing, camping, hiking"
                   }                                                     
       );
+
+      builder.Entity<UserInfo>().HasData(
+      new UserInfo { UserInfoId = 1, 
+                  DisplayName = "Test",
+                  UserName = "test123",
+                  Email = "test@test.com",
+                  Password = "Test1234"
+                }
+      );
     }
   }
 }
+
 
