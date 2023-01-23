@@ -117,24 +117,23 @@ namespace ParksApi.Controllers
   {
     ... 
 ```
-#### Launch project
-Same as above, run project with by typing ```dotnet watch run``` in command line.
+### Launch project
+Run project by typing ```dotnet watch run``` in command line.
 
-#### Get token in Swagger
-Project will launch in swagger. 
-  1. Click on ```token``` ```POST```. Then click on ```Try it out```.
-  2. Scroll down and in ```Request body``` copy the following,
+### Get token in Swagger
+Project will launch in swagger (https://localhost:5001/swagger/index.html) 
+  1. On Swagger index page, scroll down and dlick on 'token' ```POST```. Then click on ```Try it out```.
+  2. Scroll down, in ```Request body``` box, and the following 'email' and 'password' into the empty box,
   ```
   {
   "email": "test@test.com",
   "password": "Test1234"
   }
-  ```
-  Then click ```Execute```.
-  3. Scroll down more (within Token), and copy token that was created and is displayed in ```Response body```.
+  ``` Then click ```Execute```.
+  3. Scroll down again (within Token), and copy token that was created and is displayed in ```Response body```.
   4. Scroll to top of page and click ```Authorize```.
   5. In pop-up box, paste token into ```Value``` box. Then click ```Authorize```. Then click ```Close```.
-  6. Now you have been authorized to use GET, POST, PUT, DELETE within Swagger to view API. To logout, click ```Authorize``` and ```Logout```.
+  6. Now you are authorized to use GET, POST, PUT, DELETE within Swagger to view API. To logout, click ```Authorize``` and ```Logout```.
   
 
 ### Known Bugs
