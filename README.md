@@ -129,7 +129,9 @@ Project will launch in swagger (https://localhost:5001/swagger/index.html)
   "email": "test@test.com",
   "password": "Test1234"
   }
-  ``` Then click ```Execute```.
+  ``` 
+  Then click ```Execute```.
+  
   3. Scroll down again (within Token), and copy token that was created and is displayed in ```Response body```.
   4. Scroll to top of page and click ```Authorize```.
   5. In pop-up box, paste token into ```Value``` box. Then click ```Authorize```. Then click ```Close```.
