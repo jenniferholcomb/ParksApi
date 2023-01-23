@@ -130,12 +130,11 @@ Project will launch in swagger (https://localhost:5001/swagger/index.html)
   "password": "Test1234"
   }
   ``` 
-  Then click ```Execute```.
-  
-  3. Scroll down again (within Token), and copy token that was created and is displayed in ```Response body```.
-  4. Scroll to top of page and click ```Authorize```.
-  5. In pop-up box, paste token into ```Value``` box. Then click ```Authorize```. Then click ```Close```.
-  6. Now you are authorized to use GET, POST, PUT, DELETE within Swagger to view API. To logout, click ```Authorize``` and ```Logout```.
+  3. Then click ```Execute```.
+  4. Scroll down again (within Token), and copy token that was created and is displayed in ```Response body```.
+  5. Scroll to top of page and click ```Authorize```.
+  6. In pop-up box, paste token into ```Value``` box. Then click ```Authorize```. Then click ```Close```.
+  7. Now you are authorized to use GET, POST, PUT, DELETE within Swagger to view API. To logout, click ```Authorize``` and ```Logout```.
   
 
 ### Known Bugs
