@@ -24,9 +24,9 @@ namespace ParksApi.Controllers
     [HttpPost]
     public async Task<IActionResult> Post (UserInfo _userData)
     {
-      if (_userData != null && _userData.Email != null && _userData.Password != null)
+      if (_userData != null && _userData.UserName != null && _userData.Password != null)
       {
-        var user = await GetUser(_userData.Email, _userData.Password);
+        var user = await GetUser(_userData.UserName, _userData.Password);
 
         if (user != null)
         {
@@ -63,9 +63,9 @@ namespace ParksApi.Controllers
       }
     }
 
-    private async Task<UserInfo> GetUser(string email, string password)
+    private async Task<UserInfo> GetUser(string userName, string password)
     {
-      return await _db.UserInfos.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+      return await _db.UserInfos.FirstOrDefaultAsync(u => u.UserName == userName && u.Password == password);
     }
   }
 }
