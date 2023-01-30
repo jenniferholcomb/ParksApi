@@ -64,18 +64,8 @@ This API holds details about state and national parks, including park name, loca
 * Browser should launch automatically. If not, open browser and type in URL https://localhost:5001/swagger/index.html
 
 ## API Documentation
-Explore API endpoints through Swagger, or use base URL: `https://localhost:5001` with endpoints outlined below.
-  * Optionally, you may use Postman to view API [Download and install Postman](https://www.postman.com/downloads/)
-
-#### Example Query
-```
-https://localhost:5000/api/parks
-```
-### Endpoints
-Base URL: `https://localhost:5000`
-
-### Parks
-Access information about state and national parks.
+Use base URL: `https://localhost:5001` with endpoints outlined below.
+  * Project runs with launch url as ```https://localhost:5001/swagger/index.html```. You may use Swagger to explore endpoints, or optionally you may use Postman to view API [Download and install Postman](https://www.postman.com/downloads/)
 
 #### HTTP Request Structure
 ```
@@ -86,26 +76,95 @@ PUT /api/parks/{id}
 DELETE /api/parks/{id}
 ```
 
-#### Example Query
+### Endpoints
+
+### GET - Response returns all parks in database
+Within your browser, enter the following in the URL, ```https://localhost:5000/api/parks```. 
+Or, navigate to ```GET``` in Swagger. Click execute to view JSON response. In Postman, enter ```https://localhost:5000/api/parks``` in URL and click send.
+
+#### Sample JSON Response 
 ```
-https://localhost:5000/api/parks/1
+[
+{
+"parkId": 1,
+"name": "Cape Lookout State Park",
+"location": "Tillamook County",
+"state": "Oregon",
+"type": "coast",
+"terrain": "coastal, old-growth forest, high cliffs, rugged",
+"features": "beach, hiking, lookouts, camping"
+},
+{
+"parkId": 2,
+"name": "Tyron Creek State Natural Area",
+"location": "Portland",
+"state": "Oregon",
+"type": "city",
+"terrain": "woodsy ravine, creek",
+"features": "hiking, springtime wildflowers, wheelchair access loops"
+},
+...
 ```
 
-#### Sample JSON Response
+### GET by Id - Response returns only the body containing value equal to "parkId" 
+Enter the following in the URL, ```https://localhost:5000/api/parks/{id}```, and replace ```{id}``` with the "parkId" of the entry you wish to view. Within Swagger, navigate to GET by id, enter the "parkId" within the box labeled "id" and click execute.  In Postman, enter the url ```https://localhost:5000/api/parks/{id}``` replacing {id} with "parkId" and click send.
+
+#### Sample endpoint by Id - ```https://localhost:5000/api/parks/3```
+
+#### Sample JSON Response for parkId = 3
 ```
-  {
-    "parkId": 1,
-    "name": "Cape Lookout State Park",
-    "location": "Tillamook County",
-    "state": "Oregon",
-    "type": "coast",
-    "terrain": "coastal, old-growth forest, high cliffs, rugged",
-    "features": "beach, hiking, lookouts, camping"
-  }
+{
+"parkId": 3,
+"name": "Mt St Helens National Volcanic Monument",
+"location": "Gifford Pinchot National Forest",
+"state": "Washington",
+"type": "mountain",
+"terrain": "volcanic, old-growth forest, lakes, waterfalls in canyon",
+"features": "hiking, wheelchair access loops, viewpoints"
+}
 ```
+
+### POST - Add an entry to ParksApi database
+Within Swagger or Postman, navigate to ```POST```. In the request body, fill-in the following values for each key and click execute. If using Postman, enter URL ```https://localhost:5000/api/parks```, set request body to be "raw JSON". Click send.
+```
+{
+  "name": "string",
+  "location": "string",
+  "state": "string",
+  "type": "string",
+  "terrain": "string",
+  "features": "string"
+}
+```
+
+### PUT - Update an entry in ParksApi database
+Within Swagger or Postman, navigate to ```PUT```. In the request body, update whichever values need to be changed. It's important to include the whole body when using PUT. All keys must be within request body. If using Swagger, enter "parksId" in box labeled "id". If using Postman, enter URL ```https://localhost:5000/api/parks/{id}```, replace {id} with the "parksId" of the body to be updated. Set request body to be raw text. 
+
+When finished click execute or send.
+
+#### Example PUT JSON Response for parksId = 3
+Change "features" to include "visitor center"
+```
+{
+"parkId": 3,
+"name": "Mt St Helens National Volcanic Monument",
+"location": "Gifford Pinchot National Forest",
+"state": "Washington",
+"type": "mountain",
+"terrain": "volcanic, old-growth forest, lakes, waterfalls in canyon",
+"features": "hiking, wheelchair access loops, viewpoints, visitor center"
+}
+```
+
+### DELETE - Delete an entry in ParksApi database
+Within Swagger or Postman, navigate to ```DELETE```. If using Swagger, enter "parksId" in box labeled "id" that you wish to delete from database. If using Postman, enter URL ```https://localhost:5000/api/parks/{id}```, replace {id} with the "parksId" of the body to be deleted. 
+
+When finished click execute or send.
+
+
 ## API Documentation with Authentication
 
-To use Authorization, first uncomment ```//[Authorize]``` in ParksController.cs file. Code should like the following,
+To use Authorization, first uncomment ```//[Authorize]``` in ParksController.cs file. Code should look like the following,
 ```
     ...
 namespace ParksApi.Controllers
@@ -122,8 +181,8 @@ Run project by typing ```dotnet watch run``` in command line.
 
 ### Get token in Swagger
 Project will launch in swagger (https://localhost:5001/swagger/index.html) 
-  1. On Swagger index page, scroll down and dlick on 'token' ```POST```. Then click on ```Try it out```.
-  2. Scroll down, in ```Request body``` box, and the following 'email' and 'password' into the empty box,
+  1. On Swagger index page, scroll down and click on 'token' ```POST```. Then click on ```Try it out```.
+  2. Scroll down, in ```Request body``` box, add the following 'email' and 'password' into the empty box,
   ```
   {
   "email": "test@test.com",
