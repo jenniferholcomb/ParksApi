@@ -1,4 +1,4 @@
-# National and State Parks API
+# National and State Parks Api
 
 #### By: Jennifer Holcomb
 
@@ -185,6 +185,9 @@ Project will launch in swagger (https://localhost:5001/swagger/index.html)
   2. Scroll down, in ```Request body``` box, add the following 'email' and 'password' into the empty box,
   ```
   {
+  "userInfoId": 1,
+  "displayName": "Test",
+  "userName": "test123",
   "email": "test@test.com",
   "password": "Test1234"
   }
@@ -194,7 +197,23 @@ Project will launch in swagger (https://localhost:5001/swagger/index.html)
   5. Scroll to top of page and click ```Authorize```.
   6. In pop-up box, paste token into ```Value``` box. Then click ```Authorize```. Then click ```Close```.
   7. Now you are authorized to use GET, POST, PUT, DELETE within Swagger to view API. To logout, click ```Authorize``` and ```Logout```.
-  
+
+### Get token in Postman
+  1. In URL, enter ```https://localhost:5001/api/token``` and select ```POST``` from dropdown menu.
+  2. Click on ```Body``` and select "raw" and "JSON" request body type.
+  3. Copy the following into the request body and click ```send```.
+  ```
+  {
+  "userInfoId": 1,
+  "displayName": "Test",
+  "userName": "test123",
+  "email": "test@test.com",
+  "password": "Test1234"
+  }
+  ```
+  4. Copy the token that is displayed in the test results.
+  5. Navigate to ```Headers```. Enter ```bearer``` as your KEY, and paste your token into VALUE. Click Send.
+  6. You are now authorized to view the ParksApi, and can navigate to URL ```https://localhost:5000/api/parks``` to view all.
 
 ### Known Bugs
 
