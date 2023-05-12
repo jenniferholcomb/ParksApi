@@ -7,7 +7,7 @@ namespace ParksApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  //[Authorize]
+  [Authorize]
   public class ParksController : ControllerBase
   {
     private readonly ParksApiContext _db;
