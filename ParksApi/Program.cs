@@ -7,6 +7,15 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => 
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000");
+        });
+});
+
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
@@ -38,8 +47,8 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddDbContext<ParksApiContext>(
                 dbContextOptions => dbContextOptions
                     .UseMySql(
-                    builder.Configuration["ConnectionStrings:DefaultConnection"], 
-                    ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
+                    builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTION"], 
+                    ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:AZURE_SQL_CONNECTION"]
                     )
                 )
                 );
@@ -78,6 +87,7 @@ else
 {
     app.UseHttpsRedirection();
 }
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();
