@@ -4,6 +4,8 @@
 
 #### API contains information about State and National Parks, with authentication using token and authorization in Swagger.
 
+Link to front-end React repository, `https://github.com/jenniferholcomb/Parks-Oregon`
+
 ### Technologies Used
 
 * C#
@@ -164,18 +166,6 @@ When finished click execute or send.
 
 ## API Documentation with Authentication
 
-To use Authorization, first uncomment ```//[Authorize]``` in ParksController.cs file. Code should look like the following,
-```
-    ...
-namespace ParksApi.Controllers
-{
-  [Route("api/[controller]")]
-  [ApiController]
-  [Authorize]
-  public class ParksController : ControllerBase
-  {
-    ... 
-```
 ### Launch project
 Run project by typing ```dotnet watch run``` in command line.
 
