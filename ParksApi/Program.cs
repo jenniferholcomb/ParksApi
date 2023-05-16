@@ -5,6 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options => 
@@ -12,7 +14,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon/", "http://localhost:3000");
+            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon/", 
+                               "http://localhost:3000")
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
         });
 });
 
