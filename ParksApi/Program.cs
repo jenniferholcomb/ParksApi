@@ -12,8 +12,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon/");
-            policy.WithOrigins("http://localhost:3000");
+            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon/", "http://localhost:3000");
         });
 });
 
