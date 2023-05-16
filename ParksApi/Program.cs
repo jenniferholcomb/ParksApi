@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("Policy",
         policy =>
         {
-            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon", 
+            policy.WithOrigins("https://jenniferholcomb.github.io/Parks-Oregon/", 
                                "http://localhost:3000")
                                .AllowAnyHeader()
                                .AllowAnyMethod();
