@@ -20,7 +20,7 @@ namespace ParksApi.Controllers
       _configuration = config;
       _db = db;
     }
-
+    [EnableCors("Policy")]
     [HttpPost]
     public async Task<IActionResult> Post (UserInfo _userData)
     {

@@ -18,6 +18,7 @@ namespace ParksApi.Controllers
     }
 
     // GET api/Parks
+    [EnableCors("Policy")]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get([FromQuery] string location, string state, string type)
     {
@@ -42,6 +43,7 @@ namespace ParksApi.Controllers
     }
 
     // GET: api/Parks/5
+    [EnableCors("Policy")]
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark(int id)
     {
@@ -55,6 +57,7 @@ namespace ParksApi.Controllers
     }
 
     // POST: api/Parks
+    [EnableCors("Policy")]
     [HttpPost]
     public async Task<ActionResult<Park>> Post([FromBody] Park park)
     {
@@ -64,6 +67,7 @@ namespace ParksApi.Controllers
     }
 
     //PUT: api/Parks/5
+    [EnableCors("Policy")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     {
@@ -97,6 +101,7 @@ namespace ParksApi.Controllers
     }
 
     // DELETE: api/Parks/5
+    [EnableCors("Policy")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
